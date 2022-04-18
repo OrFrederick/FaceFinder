@@ -1,0 +1,4 @@
+recognition/.env
+recognition/env
+recognition/__pycache__
+data/videos/*

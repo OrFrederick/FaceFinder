@@ -13,3 +13,4 @@ First, you need to install Ruby and [Rails](https://www.tutorialspoint.com/ruby-
 
 - `echo 'export FaceFinder_DATABASE_USERNAME="<username>"' >> ~/.bashrc`
 - `echo 'export FaceFinder_DATABASE_PASSWORD="<PostgreSQL_Role_Password>"' >> ~/.bashrc`
+- Create `recognition\.env` and fill it with `STREAM_URL="tcp://<YOUR_IP>:3333"`
