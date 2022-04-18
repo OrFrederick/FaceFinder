@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  recording_start: 2022-04-18 13:44:21
+  recording_end: 2022-04-18 13:44:21
+
+two:
+  title: MyString
+  recording_start: 2022-04-18 13:44:21
+  recording_end: 2022-04-18 13:44:21

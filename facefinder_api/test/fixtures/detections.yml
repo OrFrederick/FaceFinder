@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timestamp: 1
+  datetime: 2022-04-18 13:44:33
+  top: 1
+  bottom: 1
+  left: 1
+  right: 1
+  video: one
+  person: one
+
+two:
+  timestamp: 1
+  datetime: 2022-04-18 13:44:33
+  top: 1
+  bottom: 1
+  left: 1
+  right: 1
+  video: two
+  person: two
