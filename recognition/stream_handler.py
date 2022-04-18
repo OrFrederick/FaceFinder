@@ -9,7 +9,6 @@ import threading
 
 class StreamHandler:
     def __init__(self, debug=False):
-        # raspivid -t 0 -n -b 1000000 -g 30 -ih -pf baseline -w 640 -h 480 -fps 30 -l -o tcp://192.168.178.34:3333
         self.CAP = self.connect_to_stream()
         self.WIDTH = int(self.CAP.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.HEIGHT = int(self.CAP.get(cv2.CAP_PROP_FRAME_HEIGHT))

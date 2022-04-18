@@ -1,6 +1,6 @@
 from stream_handler import StreamHandler
 from helper import get_video_title, convert_avi_to_mp4
-from reconizer import Recognizer
+from recognizer import Recognizer
 from api_handler import ApiHandler
 import datetime
 import time
