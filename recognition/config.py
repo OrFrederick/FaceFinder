@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Recognition
-FACTOR = 1  # Recognition resize factor
+FACTOR = 3  # Recognition resize factor
 STREAM_URL = os.environ.get("STREAM_URL")
 
 # Data
