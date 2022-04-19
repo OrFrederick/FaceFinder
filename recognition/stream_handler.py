@@ -7,26 +7,27 @@ import socket
 import base64
 import threading
 
+
 class StreamHandler:
-    def __init__(self, debug=False):
-        # raspivid -t 0 -n -b 1000000 -g 30 -ih -pf baseline -w 640 -h 480 -fps 30 -l -o tcp://192.168.178.34:3333
+    def __init__(self):
         self.CAP = self.connect_to_stream()
         self.WIDTH = int(self.CAP.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.HEIGHT = int(self.CAP.get(cv2.CAP_PROP_FRAME_HEIGHT))
         self.FPS = int(self.CAP.get(cv2.CAP_PROP_FPS))
-        
-        self.HOST = '127.0.0.1' # localhost
-        self.PORT = 9898 
+
+        self.HOST = '127.0.0.1'  # localhost
+        self.PORT = 9898
 
         self.q = queue.Queue()
         t = threading.Thread(target=self._reader)
         t.daemon = True
         t.start()
-    
+
     def connect_to_stream(self):
-        print(f"Please run\nraspivid -t 0 -n -b 1000000 -g 30 -ih -pf baseline -w 640 -h 480 -fps 30 -l -o {config.STREAM_URL}\non your RaspberryPi")
+        print(
+            f"Please run\nraspivid -t 0 -n -b 1000000 -g 30 -ih -pf baseline -w 640 -h 480 -fps 30 -l -o {config.STREAM_URL}\non your RaspberryPi")
         cap = cv2.VideoCapture(config.STREAM_URL)
-        
+
         while True:
             if not cap.isOpened():
                 cap = cv2.VideoCapture(config.STREAM_URL)
@@ -67,32 +68,22 @@ class StreamHandler:
     def _reader(self):
         while True:
             ret, frame = self.CAP.read()
-            if not ret: break
+            if not ret:
+                break
             if not self.q.empty():
                 try:
                     self.q.get_nowait()   # discard previous (unprocessed) frame
                 except queue.Empty:
                     pass
-            frame = cv2.rotate(frame, cv2.ROTATE_180)
+            if config.ROTATE:
+                frame = cv2.rotate(frame, cv2.ROTATE_180)
             if config.SHOW:
                 cv2.imshow('LIVE', frame)
-                if cv2.waitKey(1)&0xFF == ord('q'):
+                if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
             self.q.put(frame)
         self.CAP.release()
         cv2.destroyAllWindows()
 
-
     def read(self):
         return self.q.get()
-
-    def draw_faces(self, frame, top, right, bottom, left, name):
-        # Draw a box around the face
-        cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-
-        # Draw a label with a name below the face
-        cv2.rectangle(frame, (left, bottom - 35),
-                        (right, bottom), (0, 0, 255), cv2.FILLED)
-        cv2.putText(frame, name, (left + 6, bottom - 6),
-                    cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
-        return frame

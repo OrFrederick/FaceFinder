@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_172029) do
   end
 
   create_table "face_encodings", force: :cascade do |t|
-    t.binary "encoding"
+    t.text "encoding"
     t.bigint "person_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

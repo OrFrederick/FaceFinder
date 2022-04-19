@@ -5,7 +5,7 @@ class Api::FaceEncodingsController < ApplicationController
     end
 
     def create
-        face_encoding = face_encoding.new(face_encoding_params)
+        face_encoding = FaceEncoding.new(face_encoding_params)
         if face_encoding.save
             render json: face_encoding
         else
