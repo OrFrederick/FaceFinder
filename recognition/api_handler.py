@@ -61,7 +61,6 @@ class ApiHandler:
             "title": datetime.datetime.now().strftime("%Y-%m-%d--%H-%M") + '.mp4',
             "recording_start": datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
         })
-        print(r.status_code)
         return r.json()['id']
 
     def lookup_face(self, face_encoding, known_face_encodings):

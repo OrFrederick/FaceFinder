@@ -3,12 +3,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Recognition
-FACTOR = 3  # Recognition resize factor
+FACTOR = 1  # Recognition resize factor
 STREAM_URL = os.environ.get("STREAM_URL")
 
 # Data
-VIDEO_PATH = "../data/videos/"
-FACE_IMG_PATH = "../data/images/faces/"
+VIDEO_PATH = "../facefinder-frontend/public/Videos"
 
 API_URL = 'http://localhost:3000/api'
 

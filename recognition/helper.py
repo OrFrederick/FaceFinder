@@ -10,7 +10,14 @@ def get_video_title():
 
 
 def convert_avi_to_mp4(avi_file_path, output_name):
-    os.popen(f"ffmpeg -i {avi_file_path} -ac 2 -b:v 2000k -c:a aac -c:v libx264 -b:a 160k -vprofile high -bf 0 -strict experimental -f mp4 {output_name} -hide_banner -loglevel error")
+    os.popen(f"ffmpeg -i {avi_file_path} -ac 2 -b:v 2000k -c:a aac -c:v libx264 -b:a 160k -vprofile high -bf 0 -strict experimental -f mp4 {output_name} -hide_banner -loglevel error && rm {avi_file_path}")
+    # Convert
+    # os.popen(
+    #     f"ffmpeg -i {avi_file_path} -c:v copy -c:a copy -y {output_name} -hide_banner -loglevel error && rm {avi_file_path}")
+    # Delete old file
+    """ os.popen(
+        f"rm {avi_file_path}"
+    ) """
 
 
 def encoding_to_string(e):
