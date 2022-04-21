@@ -4,6 +4,11 @@ class Api::VideosController < ApplicationController
         render json: videos
     end
 
+    def show
+        video = Video.find(params[:id])
+        render json: video
+    end
+
     def create
         video = Video.new(video_params)
         if video.save

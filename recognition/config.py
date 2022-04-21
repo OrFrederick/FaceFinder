@@ -7,7 +7,7 @@ FACTOR = 1  # Recognition resize factor
 STREAM_URL = os.environ.get("STREAM_URL")
 
 # Data
-VIDEO_PATH = "../facefinder-frontend/public/Videos"
+VIDEO_PATH = "../facefinder-frontend/public/Videos/"
 
 API_URL = 'http://localhost:3000/api'
 

@@ -4,9 +4,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  variants: {
-    extend: {
-      visibility: ['group-hover'],
-    },
+  extend: {
+    visibility: ['group-hover'],
   },
 };

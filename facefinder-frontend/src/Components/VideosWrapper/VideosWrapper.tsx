@@ -1,5 +1,5 @@
 import Video from './Video';
-import { VideoIf } from './VideoIf';
+import { VideoIf } from '../Interfaces/VideoIf';
 
 function VideosWrapper(props: { videos: VideoIf[] }) {
   return (
