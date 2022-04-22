@@ -6,7 +6,8 @@ class Api::VideosController < ApplicationController
 
     def show
         video = Video.find(params[:id])
-        render json: video
+        render json: video, include: [detections: :person]
+
     end
 
     def create
@@ -33,7 +34,7 @@ class Api::VideosController < ApplicationController
         if video
             render json: {next_id: video.id + 1}
         else
-            render json: {next_id: 0}
+            render json: {next_id: 1}
         end
     end
 

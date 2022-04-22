@@ -4,6 +4,8 @@ export interface DetectionIf {
   datetime: string;
   video_id: number;
   person_id: number;
+  video: VideoIf;
+  person: PersonIf;
 }
 
 export interface VideoIf {

@@ -15,7 +15,6 @@ function Homepage() {
 
   return (
     <div>
-      HOMEPAGE
       <VideosWrapper videos={videos} />
     </div>
   );

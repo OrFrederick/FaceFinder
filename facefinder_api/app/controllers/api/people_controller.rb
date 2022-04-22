@@ -21,8 +21,12 @@ class Api::PeopleController < ApplicationController
 
     def update
         person = Person.find(params[:id])
-        person.update_attributes(person_params)
-        render json: person
+	
+        if person.update(person_params_update)
+            render json: {success: "Success updated Person"}
+        else
+            render json: {error: "Failed updating Person"}
+        end
     end
 
     def next_id
@@ -30,7 +34,7 @@ class Api::PeopleController < ApplicationController
         if person
             render json: {next_id: person.id + 1}
         else
-            render json: {next_id: 0}
+            render json: {next_id: 1}
         end
     end
 
@@ -38,5 +42,11 @@ class Api::PeopleController < ApplicationController
 
     def person_params
         params.permit(:name, :color)
+    end
+
+    private
+
+    def person_params_update
+        params.require(:person).permit(:name, :color)
     end
 end

@@ -1,6 +1,4 @@
 import { DetectionIf, PersonIf } from '../Interfaces/VideoIf';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function DetectionsRow(props: {
@@ -8,18 +6,6 @@ function DetectionsRow(props: {
   updateVideoTime: any;
   allDetectionsView?: boolean;
 }) {
-  const [person, setPerson] = useState<PersonIf>();
-
-  const fetchPerson = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/people/${props.detection.person_id}`
-      )
-      .then((response) => setPerson(response.data));
-  };
-
-  useEffect(fetchPerson, []);
-
   return (
     <tr>
       {props.allDetectionsView ? (
@@ -35,7 +21,11 @@ function DetectionsRow(props: {
           {props.detection.timestamp}
         </td>
       )}
-      <td style={{ color: `#${person?.color}` }}>{person?.name}</td>
+      <td style={{ color: `#${props.detection.person?.color}` }}>
+        <Link to={`/person/${props.detection.person_id}`}>
+          {props.detection.person?.name}
+        </Link>
+      </td>
       <td>{props.detection.datetime}</td>
     </tr>
   );
