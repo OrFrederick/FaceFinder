@@ -21,7 +21,7 @@ function VideoDetail() {
 
   useEffect(fetchVideo, []);
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="group w-fit">
         <FontAwesomeIcon icon={solid('circle-info')} />
         <div className="w-0 h-0 info invisible group-hover:visible group-hover:w-fit group-hover:h-fit">
@@ -43,13 +43,23 @@ function VideoDetail() {
           )}
         </div>
       </div>
-      <div className="ml-5 w-fit flex flex-row">
+      <div className="w-screen flex flex-row">
         <VideoPlayer video={video} setPlayer={setPlayer} />
-        <DetectionsTable
-          detections={video?.detections}
-          player={player}
-          allDetectionsView={false}
-        />
+        {video && video.detections && video?.detections?.length > 0 ? (
+          <div className="w-full m-auto">
+            <DetectionsTable
+              detections={video?.detections}
+              player={player}
+              allDetectionsView={false}
+              className1="w-2/3 m-auto h-[70vh]"
+              className2=""
+            />
+          </div>
+        ) : (
+          <h1 className="w-fit h-fit m-auto text-5xl mt-72">
+            No one got detected
+          </h1>
+        )}
       </div>
     </div>
   );

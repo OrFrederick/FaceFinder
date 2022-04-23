@@ -5,14 +5,16 @@ function DetectionsTable(props: {
   detections?: DetectionIf[];
   player?: any;
   allDetectionsView: boolean;
+  className1: string;
+  className2: string;
 }) {
   const updateVideoTime = (ts: number) => {
     props.player.seek(ts);
   };
 
   return (
-    <div className="h-[calc(100vh-2.5rem)] w-screen overflow-y-auto ">
-      <table className="w-1/2 m-auto">
+    <div className={`overflow-y-auto ${props.className1}`}>
+      <table className={`w-1/2 m-auto ${props.className2}`}>
         <thead>
           <tr>
             <th className="bg-white px-5 sticky top-0">

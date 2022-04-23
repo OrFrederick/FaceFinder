@@ -16,7 +16,7 @@ function VideoPlayer(props: {
   setPlayer: (value: any | ((prevVar: any) => any)) => void;
 }) {
   return (
-    <div>
+    <div className="ml-5">
       <Player
         muted={true}
         autoPlay={true}
