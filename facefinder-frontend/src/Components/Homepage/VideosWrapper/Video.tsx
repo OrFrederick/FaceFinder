@@ -1,4 +1,4 @@
-import { VideoIf } from '../Interfaces/VideoIf';
+import { VideoIf } from '../../Interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { Link } from 'react-router-dom';

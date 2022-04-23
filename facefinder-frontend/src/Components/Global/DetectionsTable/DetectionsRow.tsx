@@ -1,4 +1,4 @@
-import { DetectionIf, PersonIf } from '../Interfaces/VideoIf';
+import { DetectionIf, PersonIf } from '../../Interfaces';
 import { Link } from 'react-router-dom';
 
 function DetectionsRow(props: {

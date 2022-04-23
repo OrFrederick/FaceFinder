@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PersonIf } from '../Interfaces/VideoIf';
+import { PersonIf } from '../Interfaces';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 

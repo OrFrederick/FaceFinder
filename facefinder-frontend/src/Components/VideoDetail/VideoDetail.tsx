@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { VideoIf } from '../Interfaces/VideoIf';
+import { VideoIf } from '../Interfaces';
 import VideoPlayer from './VideoPlayer';
-import DetectionsTable from '../DetectionsTable/DetectionsTable';
+import DetectionsTable from '../Global/DetectionsTable/DetectionsTable';
 
 function VideoDetail() {
   const params = useParams();

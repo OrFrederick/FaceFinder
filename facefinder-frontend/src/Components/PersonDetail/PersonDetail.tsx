@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { PersonIf } from '../Interfaces/VideoIf';
+import { PersonIf } from '../Interfaces';
 import axios from 'axios';
 import { SketchPicker } from 'react-color';
 

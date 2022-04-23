@@ -1,4 +1,4 @@
-import { DetectionIf } from '../Interfaces/VideoIf';
+import { DetectionIf } from '../../Interfaces';
 import DetectionsRow from './DetectionsRow';
 
 function DetectionsTable(props: {

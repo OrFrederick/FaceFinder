@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import VideosWrapper from '../VideosWrapper/VideosWrapper';
+import VideosWrapper from './VideosWrapper/VideosWrapper';
 import axios from 'axios';
 
 function Homepage() {

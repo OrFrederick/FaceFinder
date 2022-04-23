@@ -1,4 +1,4 @@
-import { VideoIf } from '../Interfaces/VideoIf';
+import { VideoIf } from '../Interfaces';
 import 'video-react/dist/video-react.css';
 import {
   Player,
